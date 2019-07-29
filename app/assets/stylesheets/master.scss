@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond|Didact+Gothic|Great+Vibes|Lacquer&display=swap');
 @import "bootstrap";
+@import "font-awesome";
 
 .booyah-box {
   -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
@@ -31,4 +32,5 @@ h1, h2, h3, h4, h5, h6 {
   .navbar-inverse .navbar-brand {
     color: #FFFFFF;
     font-family: 'Lacquer', sans-serif;
+    font-size: 28px; 
   }
