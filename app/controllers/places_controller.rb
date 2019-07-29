@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-    before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+    before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
         def index
         page = params[:page]
         defined?(page) ? page=page : page = 0 #assigned the parameter to a local variable and we just want to check it has a value, if this is true, then do what is after the question mark. if false do what's after the colon
@@ -40,6 +40,10 @@ class PlacesController < ApplicationController
 
     def destroy
         @place = Place.find(params[:id])
+        if @place.user != current_user
+            return render plain: 'Not Allowed', status: :forbidden
+        end
+        
         @place.destroy
         redirect_to root_path
     end
