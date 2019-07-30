@@ -1,19 +1,23 @@
 class PlacesController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-        def index
+    
+    def index
         page = params[:page]
         defined?(page) ? page=page : page = 0 #assigned the parameter to a local variable and we just want to check it has a value, if this is true, then do what is after the question mark. if false do what's after the colon
         @places = Place.order("name").page(params[:page]).per_page(3)
     end
 
     def new
-       # @place = Place.new
+        @place = Place.new
     end
 
     def create
-        #Place.create(place_params)
-        current_user.places.create(place_params)
-        redirect_to root_path
+        @place = current_user.places.create(place_params)
+        if @place.valid?
+            redirect_to root_path
+        else
+            render :new, status: :unprocessable_entity
+        end
     end
     
     def show
@@ -35,7 +39,11 @@ class PlacesController < ApplicationController
         end
 
         @place.update_attributes(place_params)
-        redirect_to root_path
+        if @place.valid?
+            redirect_to root_path
+        else
+            render :edit, status: :unprocessable_entity
+        end
     end
 
     def destroy
@@ -43,7 +51,7 @@ class PlacesController < ApplicationController
         if @place.user != current_user
             return render plain: 'Not Allowed', status: :forbidden
         end
-        
+
         @place.destroy
         redirect_to root_path
     end
