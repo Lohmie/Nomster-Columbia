@@ -10,6 +10,6 @@ class CommentsController < ApplicationController
 	private
 
   def comment_params
-    params.require(:comment).permit(:message, :rating)
+    params.require(:comment).permit(:message, :rating) #you're only allowing people to submit message and rating.
   end
 end

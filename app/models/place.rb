@@ -2,6 +2,7 @@
 class Place < ApplicationRecord
     belongs_to :user
     has_many :comments
+    has_many :photos #creating association in the database between the place and photo
     geocoded_by :address
     after_validation :geocode
 

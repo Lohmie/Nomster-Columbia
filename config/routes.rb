@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'places#index'
   resources :places
   resources :places do
-    resources :comments, only: :create
+    resources :comments, only: :create #nested routes
+    resources :photos, only: :create #create new resources in app (photo)
   end
 end
