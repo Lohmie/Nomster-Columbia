@@ -8,6 +8,6 @@ class PhotosController < ApplicationController
     end
 
     def photos_params
-        params.require(:photo).permit(:caption) #you're only allowing people to submit caption and photo
+        params.require(:photo).permit(:caption, :picture) #you're only allowing people to submit caption and photo
     end
 end
