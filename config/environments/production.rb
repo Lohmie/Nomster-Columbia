@@ -13,7 +13,9 @@ Rails.application.configure do
     domain: 'nomster-mari.herokuapp.com',
     enable_starttls_auto: true
   }
-
+  
+  config.action_mailer.default_url_options= { host: "nomster-mari.herokuapp.com" }
+  
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
