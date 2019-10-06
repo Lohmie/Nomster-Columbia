@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     resources :comments, only: :create #nested routes
     resources :photos, only: :create #create new resources in app (photo)
   end
+  resources :users, only: :show
 end
