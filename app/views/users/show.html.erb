@@ -1,4 +1,4 @@
-<h1>User Dashboard</h1>
+<h1 class="h1-userdashboard">User Dashboard</h1>
 
 <div class="booyah-box">
   <div class="row">
@@ -14,4 +14,19 @@
     </div>
   </div>
   <div class="clear"></div>
+</div>
+
+<h1 class="text-center h1-userdashboard">My Comments</h1>
+<div class="row">
+<% @user.comments.each do |comment| %>
+  <div class="col-12 col-sm-6">
+    <blockquote>
+      <% if comment.humanized_rating.present? %>
+        <b><%= comment.humanized_rating %></b> -
+      <% end %>
+      <%= comment.message %>
+      <small><%= comment.user.email %></small>
+    </blockquote>
+  </div>
+<% end %>
 </div>
