@@ -16,10 +16,13 @@
   <div class="clear"></div>
 </div>
 
+<br /><br />
 <h1 class="text-center h1-userdashboard">My Comments</h1>
+<br /><br />
 <div class="row">
 <% @user.comments.each do |comment| %>
   <div class="col-12 col-sm-6">
+  <h2 class="text-center h2-place"><%= link_to comment.place.name, place_path(comment.place) %></h2>
     <blockquote>
       <% if comment.humanized_rating.present? %>
         <b><%= comment.humanized_rating %></b> -
