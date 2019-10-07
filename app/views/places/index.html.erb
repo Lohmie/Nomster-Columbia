@@ -13,13 +13,13 @@
       </div>
     </div>
     <div class="carousel-item">
-      <%= image_tag 'slider2.jpg', class: 'd-block img-fluid' %>
+      <%= image_tag 'slider4.jpg', class: 'd-block img-fluid' %>
       <div class="carousel-caption d-none d-md-block">
         <h3>Looking for hotdogs?</h3>
       </div>
     </div>
     <div class="carousel-item">
-      <%= image_tag 'slider3.jpg', class: 'd-block img-fluid' %>
+      <%= image_tag 'slider5.jpg', class: 'd-block img-fluid' %>
       <div class="carousel-caption d-none d-md-block">
         <h3>Desserts???</h3>
       </div>
@@ -61,4 +61,9 @@
 <% end %>
 </div>
 <% end %>
-<%= will_paginate @places, previous_label: h("<"), next_label: h(">") %>
+
+<div class="apple_pagination">
+  <%= will_paginate @places %>
+</div>
+
+
